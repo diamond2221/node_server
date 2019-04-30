@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>活动商城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function (doc, win) {
+			    var docEl = doc.documentElement,
+			        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			        recalc = function () {
+			            window.clientWidth = docEl.clientWidth;
+			            if (!window.clientWidth) return;
+			            docEl.style.fontSize = 100 * (window.clientWidth / 750) + 'px';
+			            window.base = 100 * (window.clientWidth / 750);
+			        };
+			    // Abort if browser does not support addEventListener
+			    if (!doc.addEventListener) return;
+			    win.addEventListener(resizeEvt, recalc, false);
+			    doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" type="text/css" href="http://static.wyc.cn/activity/css/reset.css?t=1555056668843"/>
+		<link rel="stylesheet" type="text/css" href="http://static.wyc.cn/activity/css/index.css?t=1555056668847"/>
+		<style type="text/css">
+			.notification {
+			    position: fixed;
+			    left: 50%;
+			    top: 45%;
+			    transform: translate(-50%, -50%);
+			    background-color: rgba(0, 0, 0, 0.85);
+			    font-size: 0.3rem;
+			    color: #fff;
+			    border-radius: 0.2rem;
+			    padding: 0.3rem 0.42rem;
+			    display: none;
+			    white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+				
+		<div class="wrap">
+			<div style="width: 7.5rem;overflow: hidden;position: fixed;top: 3.15rem;height: 0.5rem;z-index: 10;">
+				<div class="phone">
+					<img src="http://static.wyc.cn/activity/img/lb.png" class="lb"/>
+					<div class="phonegun">
+						<p>用户135XXXX7897已领取</p>
+					</div>
+				</div>
+			</div>
+			<img src="http://static.wyc.cn/activity/img/bj.png" class="bj"/>
+			<img src="http://static.wyc.cn/activity/img/bt.png" class="bt"/>
+			<div class="content">
+				
+			</div>
+		</div>
+		<div class="notification" id="notification">
+            
+        </div>
+	</body>
+	<script src="http://static.wyc.cn/activity/js/jquery-3.0.0.min.js?t=1555056668843" type="text/javascript" charset="utf-8"></script>
+	<script src="https://static.wyc.cn/www/js/baidutongji.js?v=20180314" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var index = {
+				init:function(){
+					var idarr = window.location.href.split('/');
+					var channel = idarr[idarr.length-1].split('?')[0];
+					$('.content').on('click','.con',function(){
+						window.location.href='/luotuo/'+channel+'/'+$(this).attr('data-id')+'?channel&'+channel+'&'+$(this).attr('data-name')
+					})
+					this.dataCon();
+					this.phonegun();
+				},
+				//数据信息
+				dataCon:function(){
+					var that = this;
+					$.ajax({
+						url:window.location.href,
+						type:'post',
+						async:true,
+						dataType:"json",
+						success:function(data){
+							console.log(data)
+							if(data.code==200){
+								if(data.data.code==400){
+									that.mess(data.data.message)
+								}else{
+									var html = '';
+								for(var i = 0; i < data.data.data.length; i++){
+									html += '<div class="con" data-id="'+data.data.data[i].id+'" data-name="'+data.data.data[i].merchantName+'">'+
+									'<p class="p1"><span class="span1">'+data.data.data[i].name+'</span>'+
+									'<span class="span4">元</span><span class="span3">'+data.data.data[i].activityPrice+'</span><span class="span2">￥'+data.data.data[i].pastPrice+'</span>'+
+									'</p>'+
+									'<p class="p2">产品内容：</p>'+
+									'<div class="chanpin">'+
+										'<p>'+data.data.data[i].contentList+'</p>'+
+		//								'<p>2) 免费39项检测</p>'+
+									'</div>'+
+									'<div class="Shop">'+
+										'<img src="http://static.wyc.cn/activity/img/sd.png"/>'+
+										'<p>'+data.data.data[i].merchantName+'</p>'+
+									'</div>'+
+									'<div class="Shop shop2">'+
+										'<img src="http://static.wyc.cn/activity/img/dz.png"/>'+
+										'<p>'+data.data.data[i].merchantAddress+'</p>'+
+									'</div>'+
+								'</div>'
+									}
+									$('.content').html(html)
+								}
+							}else{
+								that.mess(data.msg+data.data)
+							}
+						}
+					})
+					
+				},
+				mess:function(html,func){
+					var timer = '';
+					function notification(message, cb) {
+				        $("#notification").html(message).fadeIn(500, function() {
+			                timer = setTimeout(
+			                    function() {
+			                        $(this).fadeOut(500, function(params) {
+			                            cb && cb();
+			                            clearTimeout(timer);
+			                        });
+			                    }.bind(this),
+			                    2400
+			                );
+			            });
+				    }
+					notification(html, func)
+				},
+				//电话滚动
+				phonegun:function(){
+					var that = this;
+					setInterval(function(){
+						$('.phone').removeClass('move')
+						setTimeout(function(){
+							$('.phone').addClass('move')
+							$('.phonegun>p').html('用户'+that.getMoble()+'已领取')
+						},100)
+					},5000)
+					var style = document.createElement('style');
+					document.head.appendChild(style);
+//					var width = window.innerWidth;
+//					var from = `from { visibility: visible; -webkit-transform: translateX(${width}px); }`;
+//					var to = `to { visibility: visible; -webkit-transform: translateX(-100%); }`;
+//					style.sheet.insertRule(`@-webkit-keyframes barrage { ${from} ${to} }`, 0);
+					var width = window.innerWidth;
+					var from = 'from { visibility: visible; -webkit-transform: translateX('+width+'px);}';
+					var to = 'to { visibility: visible; -webkit-transform: translateX(-100%); }';
+					style.sheet.insertRule('@-webkit-keyframes barrage { '+from+to+' }'), 
+					$('.phone').addClass('move')
+				},
+				//随机手机号
+				getMoble:function() {
+					var prefixArray = new Array("130", "131", "132", "133", "135", "137", "138", "170", "187", "189");
+					var i = parseInt(10 * Math.random());
+					var prefix = prefixArray[i];//前三位
+					var prefix2 = ''
+					for (var j = 0; j < 4; j++) {
+						prefix2 += Math.floor(Math.random() * 10);
+					}
+					return prefix+'XXXX'+prefix2
+//					var x = document.getElementsByName("mobile_tel");
+//					for (var i = 0; i < x.length; i++) {
+//						var o = x[i];
+//						o.value = prefix;
+//					}
+				}
+			}
+			index.init();
+		})
+	</script>
+</html>

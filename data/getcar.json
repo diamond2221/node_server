@@ -1,0 +1,70 @@
+{
+    "code": 200,
+    "msg": "请求成功",
+    "data": {
+        "hemaCars": [
+            {
+                "id": 5,
+                "brandId": 63,
+                "seriesId": 448,
+                "modelId": 36076,
+                "carName": "日产  轩逸 2019款 1.6XE CVT舒适版 国V",
+                "goodPrice": 1,
+                "finalPrice": 97000.0,
+                "price": 129000.0,
+                "carType": 2,
+                "picture": "/wyc/630da2e06603c1ef.png",
+                "goodPicture": "/wyc/5712a2e1589a84cb.png",
+                "discountPrice": 32000.0,
+                "addTime": 1546501639000,
+                "carNumber": "00005",
+                "priceStr": "1290",
+                "seriesName": "轩逸",
+                "modelName": "2019款 1.6XE CVT舒适版",
+                "carStructure": 3
+            },
+            {
+                "id": 4,
+                "brandId": 71,
+                "seriesId": 4105,
+                "modelId": 34034,
+                "carName": "雪佛兰 科沃兹 2019款 320 手动欣悦版",
+                "goodPrice": 1,
+                "finalPrice": 61400.0,
+                "price": 90900.0,
+                "carType": 2,
+                "picture": "/wyc/63173c093de0661b.png",
+                "goodPicture": "/wyc/99288d2892b37ad1.png",
+                "discountPrice": 29500.0,
+                "addTime": 1546501513000,
+                "carNumber": "00004",
+                "priceStr": "909",
+                "seriesName": "科沃兹",
+                "modelName": "2019款 320 手动欣悦版",
+                "carStructure": 3
+            },
+            {
+                "id": 3,
+                "brandId": 1,
+                "seriesId": 2922,
+                "modelId": 35402,
+                "carName": "大众  桑塔纳 2018款 1.5L 手动风尚版",
+                "goodPrice": 1,
+                "finalPrice": 60900.0,
+                "price": 88900.0,
+                "carType": 2,
+                "picture": "/wyc/4d6100c599867ed3.png",
+                "goodPicture": "/wyc/06c08796d4e92b03.png",
+                "discountPrice": 28000.0,
+                "addTime": 1546500898000,
+                "carNumber": "00003",
+                "priceStr": "889",
+                "seriesName": "桑塔纳",
+                "modelName": "2018款 1.5L 手动风尚版",
+                "carStructure": 3
+            }
+        ],
+        "isCollection": null,
+        "count": 0
+    }
+}

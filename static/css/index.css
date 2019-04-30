@@ -1,0 +1,185 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+	overflow-y: scroll;
+	overflow: hidden;
+}
+.wrap{
+	width:100%;
+	/*height: 100%;*/
+	height: calc(100% + 1px);
+	background:linear-gradient(0deg,rgba(255,109,70,1) 0%,rgba(255,53,53,1) 100%);
+	position: relative;
+	overflow: auto;
+}
+.bj{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+.bt{
+	width: 5.17rem;
+	position: absolute;
+	top: 0.9rem;
+	left: 1.16rem;
+	z-index: 2;
+}
+.phone{
+	width: 4.27rem;
+	height: 0.5rem;
+	position: absolute;
+	/*top: 3.15rem;*/
+	/*left: 1.59rem;*/
+	right: -4.3rem;
+	background:rgba(255,242,208,1);
+	border-radius:0.25rem;
+	font-weight:400;
+	color:rgba(255,55,54,1);
+	z-index: 3;
+}
+.lb{
+	width: 0.28rem;
+	height: 0.26rem;
+	position: absolute;
+	left: 0.2rem;
+	top: 0.12rem;
+}
+.phonegun{
+	width: 3.41rem;
+	/*height: 0.29rem;*/
+	height: 0.5rem;
+	font-size: 0.28rem;
+	position: absolute;
+	/*top: 0.07rem;*/
+	top: 0;
+	left: 0.62rem;
+}
+.phonegun>p{
+	position: absolute;
+	top: 0.05rem;
+}
+.content{
+	width: 6.93rem;
+	/*height: calc(100% + 1px);*/
+	/*min-height: calc(55% + 1px);*/
+	margin: 0 auto;
+	margin-top: 4.63rem;
+	/*padding-bottom: 2rem;*/
+}
+.con{
+	width: 6.93rem;
+	min-height: 5.5rem;
+	background:rgba(255,255,255,1);
+	box-shadow:0 0 0.1rem 0 rgba(237,53,14,1);
+	border-radius:0.1rem;
+	margin-bottom: 0.3rem;
+	overflow: hidden;
+}
+.con:last-child{
+	margin-bottom: 2rem;
+}
+.p1{
+	width: 100%;
+	height:1.1rem;
+	background:rgba(255,252,237,1);
+	border-radius:0.1rem 0.1rem 0 0;
+	position: relative;
+}
+.span1{
+	position: absolute;
+	left: 0.39rem;
+	/*top: 0.37rem;*/
+	line-height: 1.1rem;
+	font-size:0.38rem;
+	font-weight:600;
+	color:rgba(166,77,11,1);
+}
+.span2{
+	/*position: absolute;
+	right: 1.4rem;
+	top: 0.45rem;*/
+	font-size:0.32rem;
+	font-weight:400;
+	text-decoration:line-through;
+	color:rgba(153,153,153,1);
+	float: right;
+    margin-top: 0.4rem;
+    margin-right: 0.23rem;
+}
+.span3{
+	/*position: absolute;
+	top: 0.3rem;
+	right: 0.86rem;*/
+	font-size:0.6rem;
+	font-weight:600;
+	color:rgba(255,5,5,1);
+	    float: right;
+    margin-top: 0.28rem;
+    margin-right: 0.1rem;
+}
+.span4{
+	/*position: absolute;
+	top: 0.4rem;
+	right: 0.41rem;*/
+	float: right;
+    margin-top: 0.4rem;
+    margin-right: 0.41rem;
+	font-size:0.4rem;
+	font-weight:600;
+	color:rgba(255,5,5,1);
+}
+.p2{
+	margin-top: 0.5rem;
+	margin-left: 0.4rem;
+	font-size:0.3rem;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.chanpin{
+	margin-top: 0.39rem;
+	margin-left: 0.4rem;
+	margin-right: 0.4rem;
+}
+.chanpin>p{
+	margin-bottom: 0.39rem;
+	font-size:0.3rem;
+	font-weight:400;
+	color:rgba(166,77,11,1);
+	line-height: 0.45rem;
+}
+.Shop{
+	margin-top: 0.5rem;
+	margin-left: 0.4rem;
+	margin-right: 0.4rem;
+}
+.Shop>img{
+	width: 0.3rem;
+	float: left;
+	margin-top: 0.07rem;
+}
+.Shop>p{
+	margin-left: 0.5rem;
+	font-size:0.3rem;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.shop2{
+	margin-bottom: 0.5rem;
+}
+.shop2>img{
+	margin-top: 0.05rem;
+}
+.shop2>p{
+	line-height: 0.4rem !important;
+}
+.move{
+  position:absolute;
+  left:0;
+  visibility:hidden;
+  /* other decorate style */
+  -webkit-animation:barrage 5s linear 0s;
+  animation:barrage 5s linear 0s;
+}

@@ -1,14 +1,17 @@
 const WXBizDataCrypt = require("../../../utils/WXBizDataCrypt.js");
 
 module.exports = async (req, res) => {
-  // const { appid, sessionKey, encryptedData, iv } = req.body;
+  // const { sessionKey, encryptedData, iv } = req.body;
   const appid = "wxe812e5fa4ea4f9bf";
 
-  const encryptedData = `MSXEWXQZZgcXFk6Z8sT/kw0i02svP5FKZQSTB24O3Wp5WlrpRiCJGsaQKTdUQ0j6So4UWLu5CzjiagYngEYv0krCbibljGbUYs9EM5F9k/KuzIPeOP38paMmmCILA2C9UIVK+JiKnF2hyP0BCn8oDb5l0CIlXRalsXDwxgTHqglQOwLbonrpm8lwGasT3pF1/Xk/p8G2HvCklwdX/Y/R8w==`;
-  const iv = "J+xGCL8ur2WBinIvULVTuQ==";
-  const sessionkey = "twnl9aw76uXzKs8OThtp3w==";
-  var pc = new WXBizDataCrypt(appid, sessionkey);
-  var data = pc.decryptData(encryptedData, iv);
+  let en = `GRGEiQSsWE3elZdDxI9ZY+wJIWuQivQbYvfOXSMns57Gno4jDYQWvdCaTkNFM83WJ/8jJ3wLADWF9w0b+yPnOE/qNdaqQH/QDyRZpOcUEdxi6rPzOgXdnjw7j05+NR4zL3Oo3oqpSZ/mLCVSvz5y2gak6WuEKJ1pF6y4Yc9EBXPF/WvHSe51m3TysyboV16DBV90Nc3V0FKJf1KUQdR3P0jmDxRzzIiE8fD8dHy/GZpvAEfKggOFVauYEdgl8zK/BQtGOaHsS63U8Os93Xf4O0+5vAl75JLa8fvQRD2Zc+Me3j9QsHkPAseP03zcKcLswL4JzY0u/sMqsY7BOYBwgvTa5a0iI9W15fgo3NgQxeGBqRqHaxcdBm0JN99f+ZjYmkV9vvqqZfVWTjvyNX5xXEN2oFNgApP6GuU9B/G3HZA2L1ZLxIvgeF/weDvWATpOrWkeDOBRSNFHteQkn5Ah6ujIhjFpVT1wGTPhBDYJfNqWErjcA1GkDOM7e2wUbeGRHA21mZXGG2nAdILhKfSW7JtL7UBPhgPu9VtV2J9hhTwcg6Gq8kyPvpOYs2NFP87lb7xs+q2FhaXYTi3uR8n85sPzjIzpzROvfynevYDWygs5udrPcCHjMM08K7CaTTillA5OAzv3T2HCpyEcZydjRWkC9VNw/migv+Gp+Eb03xpkDxwaeUuHE6ldh7lwXv4drEUL9bQtg3nrJSXRBhog3OHbkQ5szHgN+tbFaKnaV3uPS7mx7rv7zYYAzY2CE1XE/4S+wRL5/rYp8rKrVi52PcgZoLc88bDtB653BEZJPGl9eckfJwQAEo3xm1vRWca1jGrx5a+1Qc3NQi0vKMAJdo2zIbR62nNodhqAZKHkXpefWuejcls3KqjKl277g5eqkdzMNu3vYRnS09AiDBQuLGyck8MQeNtlYzoVt+COhTnYuvbZLSI2plhKOgkPzq0kGrq8LPFHVotKUj1qKmybZ3FfYYOSemsuOaDr+5hyRdKsfxL7hRyQR7KZA7I8p0Dj4YXcSGqHxlDzM7qFQIhY8v4IVDVIGi5qeu6rcZUBgrHn3vLSUxFLNq76DfHzejSmHFsW8PdfHTlJpyFTijPH+KDTdQln36rXdBtQTFxqvfM5E7640u2VtlzAWb1ZWpnmWJYPPT1PrFYSHQIqJ2mK+sbE14YQxTIFbzP/E0UTcFiHYI01+WgGQc/suGAQrmcs/MwCKUePdYYhJwnxU1WKDDiveTzzfwfr7EnCWlq4M7+0sFPQQgYmqqzvvn8o/YkF7axmB+Ngm/tEcXlXIUF+zcGs9IZv6/RD9t3+RXdLkjgXxZfDMqsxctUdp+G9qwDLoUHfYpEl5WOjXLm7clQ96Za+3c4TpKz5zPW8kw79MEBhKyuJxgkRjFXDIYH4e74KxDdnhmmch85/LzKIpXWsqVna70sUxdlO9DH4Lrfg06J/JJvMW0R8Yv71bXjlbsg2EeL904kDd14ONc7Pb0H91AdhIInK6pgfftiDybvbuBNinyreMG20Wb79606VyfHf`;
+  let se = `Y/NWzIl7O0/ub9xBb2VClg==`;
+  let iv = `VPxFaht36AV2xIDt1+Tsiw==`;
+
+
+
+  var pc = new WXBizDataCrypt(appid, se);
+  var data = pc.decryptData(en, iv);
 
   res.send(data);
 };

@@ -17,7 +17,6 @@ WXBizDataCrypt.prototype.decryptData = function(encryptedData, iv) {
     // 设置自动 padding 为 true，删除填充补位
     decipher.setAutoPadding(true);
     var decoded = decipher.update(encryptedData, "binary", "utf8");
-    console.log(decipher.final("utf8"), 21)
     decoded += decipher.final("utf8");
     decoded = JSON.parse(decoded);
   } catch (err) {

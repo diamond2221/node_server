@@ -11,6 +11,10 @@ const login = require("./api/login/index.js");
 
 const auth = require("./api/auth/index.js");
 
+const getJson = require("./api/getJson/index.js");
+
+const userList = require("./api/user/userList.js");
+
 module.exports = router => {
     /* 上传图片 */
     router.post("/files/uploadfile", uploadFile);
@@ -33,5 +37,17 @@ module.exports = router => {
     router.post("/login", login);
 
     /* 解密授权数据 */
-    router.get("/auth", auth)
+    router.get("/auth", auth);
+
+    router.post("/getJson", getJson);
+    router.get("/getJson", getJson);
+
+    router.get("/userList", userList);
+    router.get("/api2/test", (req, res) => {
+        res.send({
+            code: 200,
+            data: {},
+            message: "OK"
+        });
+    });
 };
